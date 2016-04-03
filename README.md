@@ -3,7 +3,12 @@
 
 # ssh-live
 
-### Let others whatch your current SSH session via HTTP
+### Let others watch your SSH session live via HTTP
+
+### Install:
+```
+  npm install -g ssh-live
+```
 
 ### Usage:
 ```
@@ -13,7 +18,7 @@
 
     -h, --help                output usage information
     -l, --logfile <filename>  logfile - defaults to /tmp/ssh-live.log
-    -p, --port <port>         http listen port - defaults to 5656
+    -p, --port <port>         http listen port - defaults to 8080
 
   Example:
     ssh-live foo@bar

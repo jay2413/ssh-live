@@ -16,7 +16,7 @@ const ssh = require('./lib/ssh')
 
 const defaults = {
   title: 'ssh-live',
-  port: 5656,
+  port: 8080,
   logfile: path.join(os.tmpdir(), 'ssh-live.log')
 }
 

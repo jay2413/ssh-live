@@ -1,7 +1,7 @@
 {
   "name": "ssh-live",
-  "version": "0.0.1",
-  "description": "Broadcast your ssh session via http",
+  "version": "1.0.0",
+  "description": "Let others watch your SSH session live via HTTP",
   "main": "app.js",
   "author": "Peter Morjan <pmorjan@gmail.com>",
   "license": "MIT",
