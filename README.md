@@ -1,17 +1,21 @@
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![NPM version](http://img.shields.io/npm/v/ssh-live.svg)](https://www.npmjs.org/package/ssh-live)
 
 # ssh-live
 
 ### Let others watch your SSH session live via HTTP
 
-### Install:
+Runs SSH and starts a local HTTP server to redirect STDOUT/STDERR to remote
+web clients in real-time.
+
+### Installation
 ```
   npm install -g ssh-live
 ```
 
-### Usage:
-```
+### Usage
+```sh
   Usage: ssh-live [options] [hop...] user@hostname[:port]
 
   Options:

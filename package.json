@@ -1,7 +1,14 @@
 {
   "name": "ssh-live",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Let others watch your SSH session live via HTTP",
+  "keywords": [
+    "ssh",
+    "ssh2",
+    "shell",
+    "remote",
+    "redirect"
+  ],
   "main": "app.js",
   "author": "Peter Morjan <pmorjan@gmail.com>",
   "license": "MIT",
