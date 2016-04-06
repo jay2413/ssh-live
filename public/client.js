@@ -8,9 +8,8 @@
   var reconnects = 0
   var maxReconnects = 300
 
-  function Command (ws, args) {
+  function Command (args) {
     this.args = args
-    this.ws = ws
   }
 
   Command.prototype.run = function () {
@@ -31,7 +30,7 @@
     ws.onopen = function () {
       console.log('ws open')
       terminal.wipeContents()
-      terminal.runCommandClass(Command.bind({}, ws))
+      terminal.runCommandClass(Command)
       isDirty = true
     }
 
@@ -58,10 +57,6 @@
       timer = setTimeout(function () {
         createWS()
       }, 1000)
-    }
-
-    ws.onerror = function (err) {
-      // FIXME
     }
   }
 
