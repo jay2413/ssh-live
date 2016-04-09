@@ -8,29 +8,11 @@
   var reconnects = 0
   var maxReconnects = 300
 
-  function Command (args) {
-    this.args = args
-  }
-
-  Command.prototype.run = function () {
-    this.args.io.onVTKeystroke = function (str) {
-      // ignore
-    }
-    this.args.io.sendString = function (str) {
-      // ignore
-    }
-    this.args.io.onTerminalResize = function (col, row) {
-      // ignore
-    }
-  }
-
   function createWS () {
     var ws = new window.WebSocket(WSURL)
 
     ws.onopen = function () {
-      console.log('ws open')
       terminal.wipeContents()
-      terminal.runCommandClass(Command)
       isDirty = true
     }
 
@@ -41,6 +23,7 @@
     ws.onclose = function (event) {
       if (isDirty) {
         terminal.wipeContents()
+        document.title = 'ssh-live'
         isDirty = false
       }
 
@@ -65,13 +48,16 @@
     terminal = new hterm.Terminal()
     terminal.decorate(document.getElementById('terminal'))
     terminal.onTerminalReady = function () {
-      console.info('terminal ready')
       terminal.prefs_.set('font-size', 12)
       terminal.prefs_.set('cursor-blink', true)
       terminal.prefs_.set('cursor-blink-cycle', [500, 500])
+      terminal.prefs_.set('copy-on-select', false)
+      terminal.prefs_.set('audible-bell-sound', '')
+      terminal.prefs_.set('use-default-window-copy', true)
       terminal.prefs_.set('scroll-on-output', true)
       terminal.setCursorPosition(0, 0)
       terminal.setCursorVisible(true)
+      terminal.keyboard.uninstallKeyboard()
       createWS()
     }
   })
