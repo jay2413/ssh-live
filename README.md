@@ -21,7 +21,7 @@ web clients in real-time.
   Options:
 
     -h, --help                output usage information
-    -l, --logfile <filename>  logfile - defaults to /tmp/ssh-live.log
+    -l, --logfile <filename>  log http request to file
     -p, --port <port>         http listen port - defaults to 8080
 
   Example:
